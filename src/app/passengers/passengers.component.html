@@ -1,0 +1,46 @@
+
+<p><b>Add New Passengers!!</b></p>
+<div class="InsertPassengers">
+
+<form >
+    <div class="form-group">
+      <label for="PassengerName">Name</label>
+      <input type="text" class="form-control" #Name  aria-describedby="emailHelp" placeholder="Enter Full Name">
+    </div>
+
+    <label for="PassengerGender">Gender</label><br/>
+    <div class="form-group form-check">
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+    </div>
+
+    
+    <div class="form-group">
+        <label for="PassengerAge">Age</label>
+        <input type="number" class="form-control" id="PassengerAge" placeholder="Enter Age">
+      </div>
+
+      <!-- <div class="form-group row">
+        <label for="example-date-input" class="col-2 col-form-label">Date of Birth</label>
+        <div class="col-10">
+          <input class="form-control" type="date"  id="example-date-input">
+        </div>
+      </div> -->
+
+    <div>
+    <label for="Seat">Choose Seat ID:  </label>
+    <select name="seatid" id="seats">
+     
+    </select>
+
+    </div>
+    
+    
+    <button type="submit" class="btn btn-primary" (click)="insertPassenger()" style="margin: 2%;">Submit</button>
+  </form>
+
+</div>
