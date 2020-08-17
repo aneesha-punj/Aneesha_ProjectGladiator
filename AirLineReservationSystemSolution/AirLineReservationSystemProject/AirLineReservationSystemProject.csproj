@@ -125,18 +125,33 @@
       <DependentUpon>AirlineResModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CancelTicketController.cs" />
+    <Compile Include="Controllers\PrintTicketController.cs" />
     <Compile Include="Controllers\PassengerController.cs" />
+    <Compile Include="Controllers\ViewBookingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_cancelTicket_Result.cs">
+      <DependentUpon>AirlineResModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_displaypassengers_Result.cs">
+      <DependentUpon>AirlineResModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_downloadticket_Result.cs">
       <DependentUpon>AirlineResModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>AirlineResModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>AirlineResModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_viewBookings_Result.cs">
+      <DependentUpon>AirlineResModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_viewBooking_Result.cs">
       <DependentUpon>AirlineResModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">

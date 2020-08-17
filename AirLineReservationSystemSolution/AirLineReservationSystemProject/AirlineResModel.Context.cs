@@ -17,8 +17,6 @@ namespace AirLineReservationSystemProject
     
     public partial class AirlineDBEntities1 : DbContext
     {
-        private object seatIDParameter;
-
         public AirlineDBEntities1()
             : base("name=AirlineDBEntities1")
         {
@@ -163,16 +161,16 @@ namespace AirLineReservationSystemProject
             var genderParameter = gender != null ?
                 new ObjectParameter("Gender", gender) :
                 new ObjectParameter("Gender", typeof(string));
-
-            var seatIDParameter = age.HasValue ?
-              new ObjectParameter("SeatID", seatID) :
-              new ObjectParameter("SeatID", typeof(int));
-
+    
+            var seatIDParameter = seatID != null ?
+                new ObjectParameter("SeatID", seatID) :
+                new ObjectParameter("SeatID", typeof(string));
+    
             var ageParameter = age.HasValue ?
                 new ObjectParameter("Age", age) :
                 new ObjectParameter("Age", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertpassengers", ticketIDParameter, pnameParameter, genderParameter,seatIDParameter, ageParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertpassengers", ticketIDParameter, pnameParameter, genderParameter, seatIDParameter, ageParameter);
         }
     
         public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
@@ -195,6 +193,60 @@ namespace AirLineReservationSystemProject
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual ObjectResult<sp_viewBookings_Result> sp_viewBookings(string uid)
+        {
+            var uidParameter = uid != null ?
+                new ObjectParameter("uid", uid) :
+                new ObjectParameter("uid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_viewBookings_Result>("sp_viewBookings", uidParameter);
+        }
+    
+        public virtual ObjectResult<sp_viewBooking_Result> sp_viewBooking(string uid)
+        {
+            var uidParameter = uid != null ?
+                new ObjectParameter("uid", uid) :
+                new ObjectParameter("uid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_viewBooking_Result>("sp_viewBooking", uidParameter);
+        }
+    
+        public virtual ObjectResult<sp_downloadticket_Result> sp_downloadticket(string bid)
+        {
+            var bidParameter = bid != null ?
+                new ObjectParameter("bid", bid) :
+                new ObjectParameter("bid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_downloadticket_Result>("sp_downloadticket", bidParameter);
+        }
+    
+        public virtual ObjectResult<sp_cancelTicket_Result> sp_cancelTicket(string uid)
+        {
+            var uidParameter = uid != null ?
+                new ObjectParameter("uid", uid) :
+                new ObjectParameter("uid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_cancelTicket_Result>("sp_cancelTicket", uidParameter);
+        }
+    
+        public virtual int sp_cancelticketStatus(string tid)
+        {
+            var tidParameter = tid != null ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_cancelticketStatus", tidParameter);
+        }
+    
+        public virtual int sp_cancelSeat(string tid)
+        {
+            var tidParameter = tid != null ?
+                new ObjectParameter("tid", tid) :
+                new ObjectParameter("tid", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_cancelSeat", tidParameter);
         }
     }
 }

@@ -78,7 +78,7 @@
     <Property Name="PassengerID" Type="varchar" MaxLength="40" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="TicketID" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="PName" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="Gender" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
     <Property Name="SeatID" Type="varchar" MaxLength="10" />
     <Property Name="Age" Type="int" />
   </EntityType>
@@ -112,7 +112,7 @@
     <Property Name="TicketID" Type="varchar" MaxLength="40" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="BID" Type="varchar" MaxLength="40" Nullable="false" />
     <Property Name="TripID" Type="varchar" MaxLength="40" Nullable="false" />
-    <Property Name="Phone_No" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TicketStatus" Type="nvarchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="tblTrips">
     <Key>
@@ -257,6 +257,15 @@
     <Parameter Name="version" Type="int" Mode="In" />
     <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
   </Function>
+  <Function Name="sp_cancelSeat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_cancelTicket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_cancelticketStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tid" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -265,6 +274,9 @@
   </Function>
   <Function Name="sp_displaypassengers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="uid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_downloadticket" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bid" Type="varchar" Mode="In" />
   </Function>
   <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -291,6 +303,12 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_viewBooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_viewBookings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="uid" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="AirlineDBModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_AircraftDetails" EntityType="Self.tbl_AircraftDetails" Schema="dbo" store:Type="Tables" />

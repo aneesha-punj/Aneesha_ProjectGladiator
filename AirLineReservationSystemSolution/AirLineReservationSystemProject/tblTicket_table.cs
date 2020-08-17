@@ -25,7 +25,7 @@ namespace AirLineReservationSystemProject
         public string TicketID { get; set; }
         public string BID { get; set; }
         public string TripID { get; set; }
-        public string Phone_No { get; set; }
+        public string TicketStatus { get; set; }
     
         public virtual tblBooking tblBooking { get; set; }
         public virtual tblBooking tblBooking1 { get; set; }

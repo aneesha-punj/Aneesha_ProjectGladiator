@@ -11,9 +11,9 @@
         <EntityTypeShape EntityType="AirlineDBModel.tblAdmin" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineDBModel.tblBooking" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineDBModel.tblpassenger_table" Width="1.5" PointX="10.5" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirlineDBModel.tblPayment" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirlineDBModel.tblSeat" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirlineDBModel.tblTicket_table" Width="1.5" PointX="8.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirlineDBModel.tblPayment" Width="1.5" PointX="7.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirlineDBModel.tblSeat" Width="1.5" PointX="2.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirlineDBModel.tblTicket_table" Width="1.5" PointX="8.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineDBModel.tblTrip" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineDBModel.tblUser" Width="1.5" PointX="3.75" PointY="11.375" IsExpanded="true" />
         <AssociationConnector Association="AirlineDBModel.FK__tblSeats__Airpla__30F848ED" ManuallyRouted="false" />
@@ -25,7 +25,7 @@
         <AssociationConnector Association="AirlineDBModel.pk_Bid" ManuallyRouted="false" />
         <AssociationConnector Association="AirlineDBModel.FK__tblpassen__Ticke__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="AirlineDBModel.FK__tblTicket__TripI__32E0915F" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="AirlineDBModel.sysdiagram" Width="1.5" PointX="8.375" PointY="6.75" />
+        <EntityTypeShape EntityType="AirlineDBModel.sysdiagram" Width="1.5" PointX="8" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
