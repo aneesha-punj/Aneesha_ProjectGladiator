@@ -1,0 +1,14 @@
+.mainDiv{
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+.childDiv{
+    padding-bottom: 2%;
+}
+
+.buttonWidth{
+    width: 25%;
+}

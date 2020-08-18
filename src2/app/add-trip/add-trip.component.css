@@ -1,0 +1,23 @@
+.mainDiv{
+    /* display:flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto; */
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    display: inline-block;
+    padding: 5%;
+}
+
+.childDiv{
+    padding-bottom: 2%;
+}
+
+.buttonWidth{
+    width: 25%;
+}
+.body{
+    text-align: center;
+    background-color: rgb(66, 76, 109);
+}
