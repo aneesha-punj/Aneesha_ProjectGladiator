@@ -1,0 +1,9 @@
+.body{
+    background-image: linear-gradient(lightblue, darkblue);
+    padding: 5%;
+}
+.maindiv{
+ margin: auto;
+ display: block;
+ width: 70%;
+}

@@ -1,7 +1,55 @@
-<p>viewbookings works!</p>
+<body>
+
+<!-- <app-navbaruser></app-navbaruser> -->
+<!-- <button (click)="fetchBookings()">Show previous Bookings</button> -->
 
 
-<button (click)="fetchBookings()">Show previous Bookings</button>
+<div class="table-responsive">
+
+<table class="table-responsive" class="table table-hover table-dark ">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">BID</th>
+        <th scope="col">Booking Date</th>
+        <th scope="col">Trip Date</th>
+        <th scope="col">Airplane No.</th>
+        <th scope="col">From</th>
+        <th scope="col">Departure Time</th>
+        <th scope="col">Payment Amount</th>
+        <th scope="col">Passenger Name</th>
+        <th scope="col">Passenger Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Age</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let b of bookings"> 
+            <td> {{b.BID}} </td>
+            <td>{{b.Booking_Date}}</td>
+            <td> {{b.TripDate}} </td>
+            <td> {{b.Airplane_No}} </td>
+            <td> {{b.DeparturePoint}} </td>
+            <td> {{b.Departure_Time}} </td>
+            <td> {{b.ArrivalPoint}} </td>
+            <td> {{b.Arrival_Time}} </td>
+            <td> {{b.PaymentAmount}} </td>
+            <td>{{b.PName}}</td>
+            <td>{{b.Gender}}</td>
+            <td>{{b.Age}}</td>
+
+           </tr>
+               
+        </tbody>
+        <br/>
+        <br/>
+        <br/>
+
+</table>
+
+</div>
+</body>
+<!-- 
 <div class="table-responsive" style="width: 70%; margin: auto;">
     <table class="table" >
         <thead>
@@ -15,7 +63,9 @@
                 <th>To </th>
                 <th>Arrival Time</th>
                 <th>Payment Amount</th>
-                <th>Passengers</th>
+                <th>Passenger Name</th>
+                <th>Gender</th>
+                <th>Aeg</th>
             </tr>
         </thead>
             <tbody>
@@ -30,6 +80,9 @@
                     <td> {{b.ArrivalPoint}} </td>
                     <td> {{b.Arrival_Time}} </td>
                     <td> {{b.PaymentAmount}} </td>
+                    <td>{{b.PName}}</td>
+                    <td>{{b.Gender}}</td>
+                    <td>{{b.Age}}</td>
                     <td>
                         <table>
                             <thead>
@@ -40,13 +93,13 @@
                                     
                                 </tr>
                             </thead>
-                                <!-- <tbody>
+                                 <tbody>
                                     <tr *ngFor="let b of bookings">
                                         <td>{{b.PName}}</td>
                                         <td>{{b.Gender}}</td>
                                         <td>{{b.Age}}</td>
                                     </tr>
-                                </tbody> -->
+                                </tbody> 
                         </table>
                     </td>
                 </tr>
@@ -58,4 +111,4 @@
  
     </table>
 
-</div>
+</div> -->

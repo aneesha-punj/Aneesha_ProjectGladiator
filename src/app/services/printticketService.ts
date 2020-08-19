@@ -12,7 +12,7 @@ export class PrintticketService{
     }
 
     public getTicket(id:string){
-        id = "B2";
+        id = "B1";
         return this.http.get("http://localhost:57445/api/PrintTicket/"+id);
     }
     public getCancelTicket(id:string){

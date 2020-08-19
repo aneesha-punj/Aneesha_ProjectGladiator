@@ -1,0 +1,302 @@
+<html>
+<head>
+    <title>Flight Search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body> 
+   <div class="box">
+       <div class="plane">
+           <img src="https://icons.iconarchive.com/icons/babasse/bagg-and-boxs/256/Falcon-icon.png">
+
+       </div>
+   </div>
+    <div class="maindiv">
+        <div class="formclass" >
+            <form class="form-horizontal" >
+            
+                <!-- <div class="col-md-3 register-right" >
+                    <h3><b>User Registeration </b></h3>
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                    <h3>Welcome</h3>
+                    <p>You are 30 seconds away from booking  your first flight with us!</p>
+        
+                </div> -->
+                <form [formGroup]="myForm" class="border border-light form p-3 mb-2 bg-light text-dark">
+                    <div class="form-row align-items-center" >
+                    <!-- <div class="row">  
+                        <div class="col">
+                            <label for="formGroupExampleInput">Title</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter title" formControlName="title"/>
+                            <p style="margin: 10px;" *ngIf="title.touched&&title.invalid">
+                                <span class="valid-feedback" *ngIf="title.errors.required"> Title cannot be empty</span>
+                                <span class="alert alert-danger" *ngIf="title.errors.maxlength"> Title cannot be longer than 20 charactors</span>
+                            </p>    
+                        </div> -->
+                <!-- <table style="width:100%">
+                    <tr> -->
+                        <div class="col">
+                            One-Way<input type="radio" name="trips" value="oneWay" (click)="trip('oneWay')" /> 
+                        </div>
+                        <div class="col">
+                            Round-Trip<input type="radio" name="trips"  value="twoWay"(click)="trip('twoWay')"/>
+                        </div>
+                    
+                    </div>
+                        <!-- <br/>
+                        <tr>
+                            <td> -->
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" placeholder="From" class="form-control"  #dept  [formControl]="deptCityName" *ngIf="flag"  (keyup)="search(dept.value,'From')" required>
+                                <p class = "alert alert-danger" *ngIf="deptCityName.touched && deptCityName.invalid ">
+                                    <span class="alert alert-danger" *ngIf="deptCityName.errors.required">Departure Location is required!!</span>
+                                </p><br>
+                                <span *ngIf="flag">
+                                    <span *ngFor="let list of airportFrom">
+                                    <ul *ngIf="spanFlagFrom">
+                                            <li>
+                                                <a #lists (click)="onSelectAirport(list,'From')">
+                                                {{list.airport_name}}
+                                                {{list.city_name}}
+                                                </a>
+                                            </li>
+                                    </ul> 
+                                        
+                                    </span>
+                                </span>
+                            
+                        </div>
+                        <div class="col">
+                            
+                                <input type="text" placeholder="To" class="form-control" #arrival [formControl]="arrivalCityName"  *ngIf="flag"  (keyup)="search(arrival.value,'To')" #arrival required>
+                                <p class = "alert alert-danger" *ngIf="arrivalCityName.touched && arrivalCityName.invalid">
+                                    <span class="alert alert-danger" *ngIf="arrivalCityName.errors.required">Arrival Location is required!!</span>
+                                </p><br>
+                                <span *ngIf="flag">
+                                    <span *ngFor="let list of airportTo">
+                                    <ul *ngIf="spanFlagTo">
+                                            <li>
+                                                <a (click)="onSelectAirport(list,'To')">
+                                                {{list.airport_name}}
+                                                {{list.city_name}}
+                                                </a>
+                                            </li>
+                                    </ul> 
+                                        
+                                    </span>
+                                </span>
+                            
+                        </div>
+                        
+                    </div>
+                        <br/>
+                <div class="row">   
+                    
+                    <div class="col">
+                                <input type="date" placeholder="Departure Date" #deptdate formControlName="deptdate"   class="form-control" required>
+                                <p class = "alert alert-danger"   *ngIf="deptdate.touched && deptdate.invalid ">
+                                    <span class="alert alert-danger" *ngIf="deptdate.errors.required">Departure Date is required!!</span>
+                                </p>
+                            
+                    </div>
+                    <div class="col">
+                                <input type="date" placeholder="Return Date"  #returndate formControlName="returndate" class="form-control" required>
+                                <p class = "alert alert-danger" *ngIf="returndate.touched && returndate.invalid">  
+                                    <span class="alert alert-danger" *ngIf="returndate.errors.required">required</span> 
+                                </p> 
+                                </div>
+                    </div>
+                        <br/>
+                        <div class="row">   
+                            <div class="col">
+                    
+                            <input type= "number" placeholder="Passengers"   formControlName="Passenger" class="form-control"/>
+                            <p class = "alert alert-danger" *ngIf="Passenger.touched && Passenger.invalid ">
+                                    <span class="alert alert-danger" *ngIf="Passenger.errors.required">required</span>
+                                    <span class="alert alert-danger" *ngIf="Passenger.errors.min">Atleast 1 Passenger</span>
+                            </p>
+                        </div>
+                        <div class="col">
+                                <button class="btn btn-primary"(click)="show()">Search Flight</button>
+                            </div>
+                        </div>
+                    
+                </form>
+        
+                
+            </form>
+            </div>
+<!-- <div class="formclass" >
+<form class="form-horizontal" >
+<div class="form-row align-items-center" >
+    <form [formGroup]="myForm" class="border border-light form p-3 mb-2 bg-light text-dark"style="width:25% ;">
+       <table style="width:100%">
+           <tr>
+                <td>One-Way<input type="radio" name="trips" value="oneWay" (click)="trip('oneWay')" /> </td>
+                <td>Round-Trip<input type="radio" name="trips"  value="twoWay"(click)="trip('twoWay')"/></td>
+            </tr>
+            <br/>
+            <tr>
+                <td>
+                    <input type="text" placeholder="From" class="form-control"  #dept  [formControl]="deptCityName" *ngIf="flag"  (keyup)="search(dept.value,'From')" required>
+                    <p class = "alert alert-danger" *ngIf="deptCityName.touched && deptCityName.invalid ">
+						<span class="alert alert-danger" *ngIf="deptCityName.errors.required">Departure Location is required!!</span>
+					</p><br>
+                    <span *ngIf="flag">
+                        <span *ngFor="let list of airportFrom">
+                           <ul *ngIf="spanFlagFrom">
+                                <li>
+                                    <a #lists (click)="onSelectAirport(list,'From')">
+                                    {{list.airport_name}}
+                                    {{list.city_name}}
+                                    </a>
+                                </li>
+                           </ul> 
+                            
+                        </span>
+                    </span>
+                </td>
+                <td>
+                    <input type="text" placeholder="To" class="form-control" #arrival [formControl]="arrivalCityName"  *ngIf="flag"  (keyup)="search(arrival.value,'To')" #arrival required>
+                    <p class = "alert alert-danger" *ngIf="arrivalCityName.touched && arrivalCityName.invalid">
+						<span class="alert alert-danger" *ngIf="arrivalCityName.errors.required">Arrival Location is required!!</span>
+					</p><br>
+					<span *ngIf="flag">
+                        <span *ngFor="let list of airportTo">
+                           <ul *ngIf="spanFlagTo">
+                                <li>
+                                    <a (click)="onSelectAirport(list,'To')">
+                                    {{list.airport_name}}
+                                    {{list.city_name}}
+                                    </a>
+                                </li>
+                           </ul> 
+                            
+                        </span>
+                    </span>
+                </td>
+            </tr>
+            <br/>
+           
+            <tr>
+                <td>
+                    <input type="date" placeholder="Departure Date" #deptdate formControlName="deptdate"   class="form-control" required>
+					<p class = "alert alert-danger"   *ngIf="deptdate.touched && deptdate.invalid ">
+						<span class="alert alert-danger" *ngIf="deptdate.errors.required">Departure Date is required!!</span>
+					</p>
+                </td>
+                <td>
+                    <input type="date" placeholder="Return Date"  #returndate formControlName="returndate" class="form-control" required>
+					 <p class = "alert alert-danger" *ngIf="returndate.touched && returndate.invalid">  
+						 <span class="alert alert-danger" *ngIf="returndate.errors.required">required</span> 
+					  </p> 
+            </tr>
+            <br/>
+            <tr>
+                <td><input type= "number" placeholder="Passengers"   formControlName="Passenger" class="form-control"/></td>
+				<p class = "alert alert-danger" *ngIf="Passenger.touched && Passenger.invalid ">
+                        <span class="alert alert-danger" *ngIf="Passenger.errors.required">required</span>
+                        <span class="alert alert-danger" *ngIf="Passenger.errors.min">Atleast 1 Passenger</span>
+				</p>
+                <td>
+                    <button class="btn btn-primary"(click)="show()">Search Flight</button>
+                </td>
+            </tr>
+       </table>  
+	 </form>
+</div>
+    
+</form>
+</div> -->
+<br/><br/><br/>
+
+<div *ngIf="oneWayFlag">
+    <table class="table table-hover table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Airplane No.</th>
+				<th scope="col">Departure Time</th>
+				<th scope="col">Arrival Time</th>
+				<th scope="col">Economy</th>
+				<th scope="col">Business</th>
+				<th scope="col">FirstClass</th>
+				<th scope="col">Choose</th>
+			</tr>
+		</thead>
+		<tbody>
+			<label *ngIf="resultFlag">No Flights available for your search critera.Please try again!!!!</label>
+			<tr  *ngFor="let list of result">
+				
+					
+					 <td>{{list.Airplane_no}}</td> 
+					<td>{{list.Departure_Time}}</td> 
+					<td>{{list.Arrival_Time}}</td> 
+					<td>{{list.EconomyClassFair}}</td>
+					<td>{{list.FirstClassFair}}</td>
+					<td>{{list.BusinessClassFair}}</td>
+					<td><input type="radio" name="book" (change)="choose(list,'book')"  value="{{list}}"></td>
+				
+				
+			</tr>	
+		</tbody>	
+    </table>
+</div>
+
+
+
+
+<div *ngIf="returnFlag">
+    <table class="table table-hover table-dark">
+		<thead>
+			<tr>
+				<th scope="col">Airplane No.</th>
+				<th scope="col">Departure Time</th>
+				<th scope="col">Arrival Time</th>
+				<th scope="col">Economy</th>
+				<th scope="col">Business</th>
+				<th scope="col">FirstClass</th>
+				<th scope="col">Choose</th>
+			</tr>
+		</thead>
+		<tbody>
+		<label *ngIf="resultFlag">No Flights available for your search critera.Please try again!!!!</label>
+		
+			<tr  *ngFor="let list of result2">
+					 <td>{{list.Airplane_no}}</td> 
+					<td>{{list.Departure_Time}}</td> 
+					<td>{{list.Arrival_Time}}</td> 
+					<td>{{list.EconomyClassFair}}</td>
+					<td>{{list.FirstClassFair}}</td>
+					<td>{{list.BusinessClassFair}}</td>
+					<td><input type="radio" name="book1" (change)="choose2(list,'book1')"  value="{{list}}"></td>
+				
+				
+			</tr>
+			
+		</tbody>
+	
+    </table>
+	
+</div>
+<div *ngIf="oneWayFlag">
+		<button class="btn btn-primary"  (click)="book()">Book</button>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,22 +1,31 @@
-<div class="topnav">
+<!-- <div class="topnav">
     <a href="./FlightSelect.html">Home</a>&nbsp;&nbsp;
     
     <a href="#about">About Us</a>&nbsp;&nbsp;
     <a href="./flightsearch.html">Logout</a>&nbsp;&nbsp;
-</div>
+</div> -->
+
+<body>
+<div class="maindiv">
 <h3>Your Details</h3>
-  <div>
-Flight Name: <br/>
-Departure Airport:<br/>
-Destination Airport:<br/>
-Departure time:<br/>
-Arrival Time:<br/>
-  </div><br/><br/>
-  <div *ngFor="let passenger of passengers">
-    Seat Number:<br/>  
-    Passenger Name:<br/>
-      Gender:<br/>
+  <div  class="flight" *ngIf="passengers">
+      <b>Flight Name:</b> {{passengers[0].FlightId}}<br/>
+      <b>Departure Airport:</b>{{passengers[0].DeparturePoint}}<br/>
+      <b>Destination Airport:</b>{{passengers[0].ArrivalPoint}} <br/>
+      <b>Departure time:</b> {{passengers[0].Departure_Time}}<br/>
+      <b>Arrival Time:</b>{{passengers[0].Arrival_Time}}<br/>
+  </div>
+  <br/><br/>
+  <!-- <hr style="border: solid;"> -->
+  <div class="passengers" *ngFor="let passenger of passengers">
+      <b>Seat Number:</b>  {{passenger.SeatID}}<br/>  
+      <b> Passenger Name:</b> {{passenger.PName}}<br/>
+      <b>Gender:</b> {{passenger.Gender}}<br/>
+      <b>Age:</b>{{passenger.Age}}
+      <!-- <hr style="border: solid;"> -->
 
   </div>
   <button style="margin: 10px;" class="btn btn-primary">Confirm</button>
   <button class="btn btn-info">Edit</button>
+</div>
+</body>
